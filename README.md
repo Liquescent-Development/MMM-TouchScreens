@@ -126,6 +126,10 @@ Here's a practical example organizing common MagicMirror modules into themed scr
   config: {
     screens: [
       {
+        name: "All Modules",
+        modules: ["all"]  // Shows everything - preserves your original layout
+      },
+      {
         name: "Dashboard",
         modules: ["clock", "weather", "MMM-AirNowForecast", "newsfeed"]
       },
@@ -151,7 +155,8 @@ Here's a practical example organizing common MagicMirror modules into themed scr
 }
 ```
 
-This configuration creates four distinct screens:
+This configuration creates five screens:
+- **All Modules**: Your original MagicMirror layout with everything visible
 - **Dashboard**: Quick overview with time, current weather, air quality, and news
 - **Calendar View**: Focused calendar display with multiple calendar formats
 - **Weather Station**: Comprehensive weather information including UV index and air quality

@@ -27,6 +27,11 @@ let config = {
             config: {
                 screens: [
                     {
+                        name: "All Modules",
+                        // Default screen showing all modules - same as original layout
+                        modules: ["all"]
+                    },
+                    {
                         name: "Dashboard",
                         // Main overview screen with essential information
                         modules: ["clock", "weather", "MMM-AirNowForecast", "newsfeed"]
