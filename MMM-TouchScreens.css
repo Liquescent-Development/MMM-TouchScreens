@@ -1,0 +1,163 @@
+.MMM-TouchScreens {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.MMM-TouchScreens .screens-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  pointer-events: auto;
+}
+
+.MMM-TouchScreens .screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.MMM-TouchScreens .screen.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.MMM-TouchScreens .indicators-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+.MMM-TouchScreens .indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.MMM-TouchScreens .indicator:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.MMM-TouchScreens .indicator.active {
+  background: rgba(255, 255, 255, 0.9);
+  width: 24px;
+  border-radius: 4px;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .MMM-TouchScreens .screens-container {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.MMM-TouchScreens .screens-container.transitioning {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.MMM-TouchScreens .screens-container.dragging {
+  transition: none;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.MMM-TouchScreens .screen.slide-in-right {
+  animation: slideInFromRight 0.3s ease-out forwards;
+}
+
+.MMM-TouchScreens .screen.slide-in-left {
+  animation: slideInFromLeft 0.3s ease-out forwards;
+}
+
+.MMM-TouchScreens .screen.slide-out-left {
+  animation: slideOutToLeft 0.3s ease-out forwards;
+}
+
+.MMM-TouchScreens .screen.slide-out-right {
+  animation: slideOutToRight 0.3s ease-out forwards;
+}
+
+@media screen and (max-width: 600px) {
+  .MMM-TouchScreens .indicators-container {
+    bottom: 10px;
+    padding: 8px;
+  }
+  
+  .MMM-TouchScreens .indicator {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .MMM-TouchScreens .indicator.active {
+    width: 18px;
+  }
+}
