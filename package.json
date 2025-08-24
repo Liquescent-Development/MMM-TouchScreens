@@ -1,0 +1,30 @@
+{
+  "name": "mmm-touchscreens",
+  "version": "1.0.0",
+  "description": "MagicMirror² module that creates multiple screens with iOS-like touch functionality",
+  "main": "MMM-TouchScreens.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liquescent/MMM-TouchScreens.git"
+  },
+  "keywords": [
+    "magic-mirror",
+    "magicmirror2",
+    "smart-mirror",
+    "touch",
+    "swipe",
+    "screens",
+    "ios",
+    "pages"
+  ],
+  "author": "Liquescent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Liquescent/MMM-TouchScreens/issues"
+  },
+  "homepage": "https://github.com/Liquescent/MMM-TouchScreens#readme",
+  "dependencies": {}
+}
